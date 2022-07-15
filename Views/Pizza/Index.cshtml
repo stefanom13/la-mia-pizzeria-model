@@ -5,16 +5,29 @@
 </div>
 
 @{
- <ul>
-    @foreach (Pizza pizze in Model)
+    @if (Model == null) // aggiungere la condizione
     {
-    <li>Nome Pizza = @pizze.NomePizza</li>
-    <li>Descrizione = @pizze.Descrizione</li>
-    <li>Prezzo =  @pizze.Prezzo</li>
-    <p>*******</p>
+        // se non c'è nessun elemento
+    <div class="col-12">
+       <p class="text-center">Nessuna pizza da visualizzare!</p>
+    </div>
     }
- </ul>
+else
+    {
+    <ul>
+            @foreach (Pizza pizze in Model)
+        {
+            <li>Nome Pizza = @pizze.NomePizza</li>
+            <li>Descrizione = @pizze.Descrizione</li>
+            <li>Prezzo =  @pizze.Prezzo</li>
+            <p>*******</p>
+        }
+    </ul>
+    }
 }
+
+
+ 
 
 
 

@@ -1,25 +1,29 @@
 ﻿using Microsoft.AspNetCore.Http;
-using la_mia_pizzeria_model;
 using Microsoft.AspNetCore.Mvc;
-
 
 namespace la_mia_pizzeria_model.Controllers
 {
-    public class PizzaController : Controller
+    public class IngredientiController : Controller
     {
         // GET: HomeController1
         public ActionResult Index()
         {
-            List<Pizza> pizze = new List<Pizza>{
-             new Pizza("Margherita", "La margherita più buona della città", "pathimage", 5.45f),
-             new Pizza("Capricciosa", "Super pizza Capricciosa", "pathimage", 6.5f),
-             new Pizza("Tonno e Cipolla", "Rossi", "pathimage", 6.5f),
+            List<Ingredienti> ingredients = new List<Ingredienti>{
+             new Ingredienti("Passata di Pomodoro"),
+             new Ingredienti("Cipolla"),
+             new Ingredienti("Tonno"),
+             new Ingredienti("Prosciutto Crudo"),
+             new Ingredienti("Melanzane"),
+             new Ingredienti("Funghi"),
+             new Ingredienti("Patatine"),
+             new Ingredienti("Wurstell"),
+             new Ingredienti("Melanzana"),
+             new Ingredienti("Parmigiano"),
 
             };
 
-            return View("index",pizze);
+            return View("index", ingredients);
         }
-   
 
         // GET: HomeController1/Details/5
         public ActionResult Details(int id)
