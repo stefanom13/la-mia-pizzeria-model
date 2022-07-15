@@ -1,20 +1,21 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
-
-    @*using (PizzaContext db = new PizzaContext())
-    {
-        // Create
-        Pizza nuovoStudente = new Pizza {  Id = 1 , NomePizza = "Francesco", Descrizione = "dfa", PathImage = "fady", Prezzo = 5.60f };
-        db.Add(nuovoStudente);
-        db.SaveChanges();
-        // Read 
-        Console.WriteLine("Recupero lista di Studenti");
-        List<Pizza> pizze = db.Pizzas.OrderBy(pizze => pizze.Id).ToList<Pizza>();
-    }*@
-
+﻿@model List<Pizza>
 
 <div class="text-center">
     <h1>Benvenuti nel controller pizza</h1>
 </div>
+
+@{
+ <ul>
+    @foreach (Pizza pizze in Model)
+    {
+    <li>Nome Pizza = @pizze.NomePizza</li>
+    <li>Descrizione = @pizze.Descrizione</li>
+    <li>Prezzo =  @pizze.Prezzo</li>
+    <p>*******</p>
+    }
+ </ul>
+}
+
+
+
 
