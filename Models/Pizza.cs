@@ -2,12 +2,14 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.Data.SqlClient;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace la_mia_pizzeria_model
+
+namespace la_mia_pizzeria_model.Models
 {
     public class Pizza
     {
@@ -22,9 +24,9 @@ namespace la_mia_pizzeria_model
 
         public List<Ingredienti> PizzaIngredienti { get; set; }
 
-        public Pizza(string nomePizza, string descrizione, string pathImage, float prezzo) 
+        public Pizza(string nomePizza, string descrizione, string pathImage, float prezzo)
         {
-            
+
             NomePizza = nomePizza;
             Descrizione = descrizione;
             PathImage = pathImage;

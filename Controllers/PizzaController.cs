@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
-using la_mia_pizzeria_model;
 using Microsoft.AspNetCore.Mvc;
-
+using la_mia_pizzeria_model.Models;
 
 namespace la_mia_pizzeria_model.Controllers
 {
