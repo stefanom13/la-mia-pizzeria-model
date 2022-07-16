@@ -6,9 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using la_mia_pizzeria_model.Models;
 
-namespace la_mia_pizzeria_model.Models
-{
     [Table("Ingredienti")]
     public class Ingredienti
     {
@@ -23,4 +22,4 @@ namespace la_mia_pizzeria_model.Models
             NomeIngrediente = nomeIngrediente;
         }
     }
-}
+

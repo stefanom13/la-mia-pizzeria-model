@@ -7,10 +7,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using la_mia_pizzeria_model.Database;
+using la_mia_pizzeria_model.Models;
 
-
-namespace la_mia_pizzeria_model.Models
-{
+    [Table("pizze")]
+    [Index(nameof(NomePizza),IsUnique = true)]
     public class Pizza
     {
         [Key]
@@ -33,8 +34,6 @@ namespace la_mia_pizzeria_model.Models
             Prezzo = prezzo;
         }
 
-        public Pizza()
-        {
-        }
+     
     }
-}
+
