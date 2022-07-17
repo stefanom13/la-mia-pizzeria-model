@@ -1,4 +1,10 @@
-﻿using la_mia_pizzeria_model.Models;
+﻿using la_mia_pizzeria_model.Database;
+using la_mia_pizzeria_model.Models;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using System.Linq;
+
+
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -6,24 +12,21 @@ namespace la_mia_pizzeria_model.Controllers
 {
     public class IngredientiController : Controller
     {
+        
+
         // GET: HomeController1
         public ActionResult Index()
         {
-            List<Ingredienti> ingredients = new List<Ingredienti>{
-             new Ingredienti("Passata di Pomodoro"),
-             new Ingredienti("Cipolla"),
-             new Ingredienti("Tonno"),
-             new Ingredienti("Prosciutto Crudo"),
-             new Ingredienti("Melanzane"),
-             new Ingredienti("Funghi"),
-             new Ingredienti("Patatine"),
-             new Ingredienti("Wurstell"),
-             new Ingredienti("Melanzana"),
-             new Ingredienti("Parmigiano"),
-
-            };
-
-            return View("index", ingredients);
+            using (PizzaContext db = new PizzaContext())
+            {
+                List<Ingredienti> PizzaIngredienti = db.Ingrediente.ToList<Ingredienti>();
+                if (PizzaIngredienti == null)
+                {
+                    return NotFound("Mi Dispiace, non ci sono Ingredienti");
+                }
+                return View(Index);
+            }
+                
         }
 
         // GET: HomeController1/Details/5

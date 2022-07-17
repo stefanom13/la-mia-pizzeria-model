@@ -13,16 +13,54 @@ namespace la_mia_pizzeria_model.Controllers
         {
 
 
-            return View("index");
+            using (PizzaContext db = new PizzaContext())
+            {
+                //create
+                //Pizza nuovaPizza = new Pizza();
+                //nuovaPizza.NomePizza = "Margherita";
+                //nuovaPizza.Descrizione ="La margherita più buona della città";
+                //nuovaPizza.PathImage = "Margherita";
+                //nuovaPizza.Prezzo = 5.45f;
+
+                //Pizza nuovaPizza = new Pizza("Margherita", "La margherita più buona della città", "pathimage", 5.45f);
+                //Pizza nuovaPizza1 = new Pizza("Capricciosa", "Super pizza Capricciosa", "pathimage", 6.5f);
+                // Pizza nuovaPizza2 = new Pizza("Tonno e Cipolla", "Rossi", "pathimage", 6.5f);
+
+                //db.Add(nuovaPizza);
+                //db.Add(nuovaPizza1);
+                //db.Add(nuovaPizza2);
+
+                // db.SaveChanges();
+
+                //Console.WriteLine("recupero lista pizze");
+                List<Pizza> listPizza = db.Pizzas.OrderBy(pizza => pizza.Id).ToList<Pizza>();
+                if (listPizza == null)
+                {
+                    return NotFound("Pizze non presenti");
+                }
+                return View(listPizza);
+            }
         }
-   
+
 
         // GET: HomeController1/Details/5
         public ActionResult Details(int id)
         {
-            return View();
-        }
+            using (PizzaContext db = new PizzaContext())
+            {
+                Pizza pizza = db.Pizzas.Where(pizza => pizza.Id == id).FirstOrDefault();
 
+                if (pizza == null)
+                {
+                    return NotFound("Pizza non trovata");
+                }
+                else
+                {
+                    //db.Entry(pizza).Collection("IngredienteList").Load();
+                    return View("Details", pizza);
+                }
+            }
+        }
         // GET: HomeController1/Create
         public ActionResult Create()
         {
