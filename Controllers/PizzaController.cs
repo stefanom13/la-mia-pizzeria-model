@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+
+using la_mia_pizzeria_model.Database;
 using la_mia_pizzeria_model.Models;
 
 namespace la_mia_pizzeria_model.Controllers
@@ -9,14 +11,9 @@ namespace la_mia_pizzeria_model.Controllers
         // GET: HomeController1
         public ActionResult Index()
         {
-            List<Pizza> pizze = new List<Pizza>{
-             new Pizza("Margherita", "La margherita più buona della città", "pathimage", 5.45f),
-             new Pizza("Capricciosa", "Super pizza Capricciosa", "pathimage", 6.5f),
-             new Pizza("Tonno e Cipolla", "Rossi", "pathimage", 6.5f),
 
-            };
 
-            return View("index",pizze);
+            return View("index");
         }
    
 

@@ -34,6 +34,6 @@ using la_mia_pizzeria_model.Models;
             Prezzo = prezzo;
         }
 
-     
-    }
+  
+}
 
